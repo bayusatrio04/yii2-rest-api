@@ -60,7 +60,7 @@ class Employees extends ActiveRecord
     {
         return [
             [['tanggal_lahir'], 'safe'],
-            [['no_telepon', 'position_id', 'created_at', 'updated_at'], 'integer'],
+            [['no_telepon', 'position_id'], 'integer'],
             [['nama_depan', 'nama_belakang', 'email', 'jenis_kelamin'], 'string', 'max' => 255],
             [['position_id'], 'exist', 'skipOnError' => true, 'targetClass' => EmployeesPosition::class, 'targetAttribute' => ['position_id' => 'id']],
         ];

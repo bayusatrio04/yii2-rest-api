@@ -36,7 +36,7 @@ class AbsensiTask extends \yii\db\ActiveRecord
     {
         return [
             [['alamat_task'], 'string'],
-            [['created_at', 'updated_at', 'created_by'], 'integer'],
+            [[ 'created_by'], 'integer'],
             [['judul_task', 'deskripsi_task', 'latitude', 'longitude'], 'string', 'max' => 255],
             [['created_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['created_by' => 'id']],
         ];

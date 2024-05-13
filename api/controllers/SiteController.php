@@ -34,23 +34,24 @@ class SiteController extends Controller
         // dd($user);
         if ($model->load(Yii::$app->request->post(), '') && ($token= $model->login())) {
 
-            // Generate access token
-            // $token = Yii::$app->security->generateRandomString();
-    
-            // // Simpan access token ke dalam model User
-            // $user->access_token = $token;
-            // $user->save();
-            // dd($token);
-        
             return [
+           
+                'status' => '200', 
                 'access_token' => $token,
-                'token_type' => 'bearer',
-                'expires_in' => time() + 1000,
             ]; 
         } else {
             return $model;
         }
+        
+
     }
+
+    
+    
+    
+
+    
+    
 
 
 }

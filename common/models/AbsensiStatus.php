@@ -53,7 +53,7 @@ class AbsensiStatus extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['created_at', 'updated_at'], 'integer'],
+            // [['created_at', 'updated_at'], 'integer'],
             [['status', 'description'], 'string', 'max' => 255],
         ];
     }

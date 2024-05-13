@@ -30,8 +30,7 @@ class ActiveController extends \yii\rest\ActiveController
     {
         $behaviors = parent::behaviors();
 
-        // Hapus authenticator default jika tidak diperlukan
-        // unset($behaviors['authenticator']);
+
 
         // Tambahkan filter CORS
         $behaviors['corsFilter'] = [
@@ -51,7 +50,7 @@ class ActiveController extends \yii\rest\ActiveController
                 HttpBearerAuth::class,
        
             ],
-            'only' => ['create', 'view', 'update', 'delete'],
+            // 'only' => ['create', 'view', 'update', 'delete', 'search'],
         ];
 
         // Tambahkan penanganan error

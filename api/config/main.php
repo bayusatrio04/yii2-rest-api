@@ -11,6 +11,20 @@ return [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'api\controllers',
+    'modules' => [
+        'v1' => [
+            'class' => 'api\modules\v1\Module',
+        ],
+        'absence' => [
+            'class' => 'api\modules\absence\Module',
+        ],
+        'typeabsence' => [
+            'class' => 'api\modules\typeabsence\Module',
+        ],
+        'statusabsence' => [
+            'class' => 'api\modules\statusabsence\Module',
+        ],
+    ],
     'components' => [
         'response' => [
             'class' => 'yii\web\Response',
@@ -66,6 +80,43 @@ return [
             'enableStrictParsing' => false,
             'rules' => [
                 'auth' => 'site/login',
+                'auth/logout' => 'logout/index',
+                'auth/user' => 'user-login/index',
+                'auth/profile' => 'profile/search',
+                'auth/profile/update' => 'profile/update',
+                'search' => 'search-absensi-log/search',
+                'GET /absence/absensi-log/search/status' => 'absence/absensi-log/search-by-status',
+                'GET /absence/absensi-log/search/type' => 'absence/absensi-log/search-by-type',
+                'last-attendance' => 'last-attendance/index',
+                'GET /absence/absensi-log/latest' => 'absence/absensi-log/latest',
+                'GET /absence/absensi-log/search' => 'absence/absensi-log/search',
+                
+                'GET /absence/absensi-log/total/checkin/all/completed' => 'absence/absensi-log/total-checkin-all-completed-by-user-login',
+                'GET /absence/absensi-log/total/checkout/all/completed' => 'absence/absensi-log/total-checkout-all-completed-by-user-login',
+                'GET /absence/absensi-log/total/checkin/all/completed/filter-by-month' => 'absence/absensi-log/total-checkin-all-completed-by-user-login-month',
+                'GET /absence/absensi-log/total/checkout/all/completed/filter-by-month' => 'absence/absensi-log/total-checkout-all-completed-by-user-login-month',
+                
+                'GET /absence/total-absensi-per-karyawan/all' => 'absence/total-absensi-per-karyawan/total-per-karyawan-all',
+                'GET /absence/total-absensi-per-karyawan/month' => 'absence/total-absensi-per-karyawan/total-per-karyawan-month',
+                'GET /absence/total-absensi-per-karyawan/year' => 'absence/total-absensi-per-karyawan/total-per-karyawan-year',
+                'GET /absence/total-absensi-per-karyawan/month-year' => 'absence/total-absensi-per-karyawan/total-per-karyawan-month-year',
+                // [
+                //     'class' => 'yii\rest\UrlRule',
+                //     'controller' => 'profile', // Ini akan membuat endpoint profil menggunakan controller ProfileController.
+                //     'pluralize' => false, // Untuk menghindari penambahan "s" pada endpoint.
+                //     'extraPatterns' => [
+                //         'GET' => 'index', // Hanya izinkan metode GET untuk endpoint profil.
+                //     ],
+                // ],
+                [
+                    'class' => 'yii\rest\UrlRule',
+                    'controller' => ['v1/salary'],
+                    'pluralize' => false,
+                    'extraPatterns' => [
+                        'POST calculate' => 'calculate',
+                    ],
+                ],
+
             ],
         ]
         

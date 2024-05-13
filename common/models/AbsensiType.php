@@ -53,7 +53,7 @@ class AbsensiType extends ActiveRecord
     public function rules()
     {
         return [
-            [['created_at', 'updated_at'], 'integer'],
+            // [['created_at', 'updated_at'], 'integer'],
             [['type', 'description'], 'string', 'max' => 255],
         ];
     }

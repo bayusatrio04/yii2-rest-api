@@ -15,4 +15,5 @@ class AbsensiLogController  extends ActiveController
 {
     public $modelClass = AbsensiLog::class;
 
+    
 }

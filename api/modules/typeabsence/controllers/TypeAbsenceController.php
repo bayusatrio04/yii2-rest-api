@@ -1,13 +1,13 @@
 <?php
 
-namespace frontend\controllers;
+namespace api\modules\typeabsence\controllers;
 
 use Yii;
 use frontend\resource\AbsensiType;
 use yii\rest\ActiveController;
 use yii\web\Response;
 
-class AbsensiTypeController extends ActiveController
+class TypeAbsenceController extends ActiveController
 {
     public $modelClass = AbsensiType::class;
 

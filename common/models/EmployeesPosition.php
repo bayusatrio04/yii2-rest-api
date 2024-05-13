@@ -52,7 +52,7 @@ class EmployeesPosition extends ActiveRecord
     public function rules()
     {
         return [
-            [['created_at', 'updated_at'], 'integer'],
+            // [['created_at', 'updated_at'], 'integer'],
             [['position', 'description'], 'string', 'max' => 255],
         ];
     }

@@ -150,6 +150,10 @@ class User extends ActiveRecord implements IdentityInterface
     {
         return $this->auth_key;
     }
+    public function getAccessToken()    
+    {
+        return $this->access_token; // Gantilah 'access_token' dengan nama kolom yang menyimpan access token pada tabel pengguna Anda
+    }
 
     /**
      * {@inheritdoc}

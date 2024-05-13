@@ -61,7 +61,7 @@ class AbsensiLog extends ActiveRecord
     public function rules()
     {
         return [
-            [['id_absensi_type', 'id_absensi_status', 'created_at', 'updated_at', 'created_by'], 'integer'],
+            [['id_absensi_type', 'id_absensi_status', 'created_by'], 'integer'],
             [['tanggal_absensi', 'waktu_absensi', 'tanggal_lahir'], 'safe'],
             [['latitude', 'longitude', 'bukti_hadir'], 'string', 'max' => 255],
             [['created_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['created_by' => 'id']],
